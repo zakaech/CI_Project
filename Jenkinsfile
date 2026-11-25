@@ -23,7 +23,14 @@ pipeline {
                 bat 'python -m pytest'
             }
         }
+                stage('Analyse qualité code - Pylint') {
+            steps {
+                bat 'python -m pylint calculator.py'
+            }
+        }
+        
     }
+    
 
     post {
         always  { echo 'Pipeline terminé' }
